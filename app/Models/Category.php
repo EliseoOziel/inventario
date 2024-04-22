@@ -9,9 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'slug',
         'description',
     ];
+
+    //En plural porque una categoria puede estar en varios productos
+    public function products()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
